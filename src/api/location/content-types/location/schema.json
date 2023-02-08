@@ -1,0 +1,124 @@
+{
+  "kind": "collectionType",
+  "collectionName": "locations",
+  "info": {
+    "singularName": "location",
+    "pluralName": "locations",
+    "displayName": "locations",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "slug": {
+      "type": "uid",
+      "targetField": "name",
+      "required": false
+    },
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "lat": {
+      "type": "float"
+    },
+    "lon": {
+      "type": "float"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "address": {
+      "type": "richtext"
+    },
+    "images": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "coffee",
+        "lunch",
+        "games",
+        "gym",
+        "barber"
+      ]
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "locations"
+    },
+    "offers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::offer.offer",
+      "mappedBy": "location"
+    },
+    "MonOpen": {
+      "type": "string"
+    },
+    "MonClosed": {
+      "type": "string"
+    },
+    "TuesOpen": {
+      "type": "string"
+    },
+    "TuesClosed": {
+      "type": "string"
+    },
+    "WedOpen": {
+      "type": "string"
+    },
+    "WedClosed": {
+      "type": "string"
+    },
+    "ThurOpen": {
+      "type": "string"
+    },
+    "ThurClosed": {
+      "type": "string"
+    },
+    "FriOpen": {
+      "type": "string"
+    },
+    "FriClosed": {
+      "type": "string"
+    },
+    "SatOpen": {
+      "type": "string"
+    },
+    "SatClosed": {
+      "type": "string"
+    },
+    "SunOpen": {
+      "type": "string"
+    },
+    "SunClosed": {
+      "type": "string"
+    }
+  }
+}

@@ -66,12 +66,6 @@
         "barber"
       ]
     },
-    "user": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "plugin::users-permissions.user",
-      "inversedBy": "locations"
-    },
     "offers": {
       "type": "relation",
       "relation": "oneToMany",
@@ -119,6 +113,12 @@
     },
     "SunClosed": {
       "type": "string"
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "locations"
     }
   }
 }

@@ -63,17 +63,20 @@
       "inversedBy": "users",
       "configurable": false
     },
-    "locations": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::location.location",
-      "mappedBy": "user"
-    },
     "fname": {
       "type": "string"
     },
     "lname": {
       "type": "string"
+    },
+    "business": {
+      "type": "string"
+    },
+    "locations": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::location.location",
+      "mappedBy": "users_permissions_user"
     }
   }
 }

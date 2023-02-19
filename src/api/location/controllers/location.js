@@ -1,29 +1,41 @@
 'use strict';
-const {sanitizeInput, sanitizeOutput} = require('@strapi/utils');
-const { constants } = require('@strapi/utils/lib/relations');
+const utils = require('@strapi/utils')
+const { sanitize } = utils
 /**
  * location controller
  */
 
 const { createCoreController } = require('@strapi/strapi').factories;
+const modelUid = "api::location.location"
 
-module.exports = createCoreController('api::location.location', ({ strapi }) => ({
-    // Method 1: Creating an entirely custom action
-    async me(ctx) {
-        console.log(ctx)
-        console.log(ctx.state)
-      const user = ctx.state.user
+module.exports = createCoreController(modelUid, ({ strapi }) => ({
+   // Method 1: Creating an entirely custom action
+   getUserLocations: async(ctx, next) => {
+      console.log("GOT HERE!!!!")
+      ctx.body = "GOT HERE!!!!lalaa"
+      const {id} = ctx.request.params
+      console.log(id)
 
-      if(!user){
-        return ctx.badRequest(null, [{messages: {id: "No Auth Header was found"}}])
-      }
-
-      const data = await strapi.services.locations.find({user:user.id})
-
-      if(!data) {
-        return ctx.notDound()
-      }
-
-      return sanitizeOutput(data, {model: strapi.models.locations})
-    },
-}));
+   //    const events = await strapi
+   //    .db
+   //    .query('plugin::users-permissions.user')
+   //    .me({
+   //       where: {
+   //          id: user.id
+   //       },
+   //       populate: { 
+   //          locations: { select: 'id'}
+   //       }
+   //       })
+   // },
+    // find: async (ctx, next) => {
+    //   // destructure to get `data` and `meta` which strapi returns by default
+    //   const {data, meta} = await super.find(ctx)
+      
+    //   // perform any other custom action
+    //   return {data, meta}
+    // }
+   }
+}
+   )
+   );

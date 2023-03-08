@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "scans",
+  "info": {
+    "singularName": "scan",
+    "pluralName": "scans",
+    "displayName": "Scan",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "location": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::location.location",
+      "inversedBy": "scans"
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "scans"
+    },
+    "scannedAt": {
+      "type": "datetime"
+    },
+    "scannedAtDate": {
+      "type": "date"
+    }
+  }
+}

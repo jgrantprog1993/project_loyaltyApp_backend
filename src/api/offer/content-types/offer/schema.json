@@ -19,13 +19,17 @@
       "type": "richtext"
     },
     "endDate": {
-      "type": "datetime"
+      "type": "date"
     },
     "location": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::location.location",
       "inversedBy": "offers"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
     }
   }
 }

@@ -8,7 +8,13 @@ const { sanitize } = utils
 const { createCoreController } = require('@strapi/strapi').factories;
 
 
-module.exports = createCoreController('api::location.location'//, {
+module.exports = createCoreController('api::location.location', {
+   count(ctx) {
+      var { query } = ctx.request
+      return strapi.query('api::location.location').count({ where: query });
+  }
+});
+   
    // Method 1: Creating an entirely custom action
   // https://dev.to/paratron/limit-access-of-strapi-users-to-their-own-entries-298l
    
@@ -57,4 +63,4 @@ module.exports = createCoreController('api::location.location'//, {
       //    return super.delete(ctx);
       // }
 //}
-)
+

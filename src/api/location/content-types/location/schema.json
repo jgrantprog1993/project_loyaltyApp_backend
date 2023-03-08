@@ -125,6 +125,12 @@
       "relation": "oneToMany",
       "target": "api::voucher.voucher",
       "mappedBy": "location"
+    },
+    "scans": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::scan.scan",
+      "mappedBy": "location"
     }
   }
 }

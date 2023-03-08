@@ -1,29 +1,66 @@
 'use strict';
-const {sanitizeInput, sanitizeOutput} = require('@strapi/utils');
-const { constants } = require('@strapi/utils/lib/relations');
+const utils = require('@strapi/utils')
+const { sanitize } = utils
 /**
  * location controller
  */
 
 const { createCoreController } = require('@strapi/strapi').factories;
 
-module.exports = createCoreController('api::location.location', ({ strapi }) => ({
-    // Method 1: Creating an entirely custom action
-    async me(ctx) {
-        console.log(ctx)
-        console.log(ctx.state)
-      const user = ctx.state.user
 
-      if(!user){
-        return ctx.badRequest(null, [{messages: {id: "No Auth Header was found"}}])
-      }
+module.exports = createCoreController('api::location.location', {
+   count(ctx) {
+      var { query } = ctx.request
+      return strapi.query('api::location.location').count({ where: query });
+  }
+});
+   
+   // Method 1: Creating an entirely custom action
+  // https://dev.to/paratron/limit-access-of-strapi-users-to-their-own-entries-298l
+   
+   // async find(ctx){
+      //    console.log("TESTTESTESTESTEST!!!")
+      //    const user = ctx.state.user;
+   
+      //    ctx.query.filters = {
+      //       ...(ctx.query.filters || {}),
+      //       owner: user.id
+      //    };
+   
+      //    return super.find(ctx);
+      // },
 
-      const data = await strapi.services.locations.find({user:user.id})
+      // async findOne(ctx){
+      //    const user = ctx.state.user;
 
-      if(!data) {
-        return ctx.notDound()
-      }
+      //    ctx.query.filters = {
+      //       ...(ctx.query.filters || {}),
+      //       owner: user.id
+      //    };
 
-      return sanitizeOutput(data, {model: strapi.models.locations})
-    },
-}));
+      //    return super.findOne(ctx);
+      // },
+
+      // async update(ctx){
+      //    const user = ctx.state.user;
+
+      //    ctx.query.filters = {
+      //       ...(ctx.query.filters || {}),
+      //       owner: user.id
+      //    };
+
+      //    return super.update(ctx);
+      // },
+
+      // async delete(ctx){
+      //    const user = ctx.state.user;
+
+      //    ctx.query.filters = {
+      //       ...(ctx.query.filters || {}),
+      //       owner: user.id
+      //    };
+
+      //    return super.delete(ctx);
+      // }
+//}
+

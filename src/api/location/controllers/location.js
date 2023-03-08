@@ -6,36 +6,55 @@ const { sanitize } = utils
  */
 
 const { createCoreController } = require('@strapi/strapi').factories;
-const modelUid = "api::location.location"
 
-module.exports = createCoreController(modelUid, ({ strapi }) => ({
+
+module.exports = createCoreController('api::location.location'//, {
    // Method 1: Creating an entirely custom action
-   getUserLocations: async(ctx, next) => {
-      console.log("GOT HERE!!!!")
-      ctx.body = "GOT HERE!!!!lalaa"
-      const {id} = ctx.request.params
-      console.log(id)
+  // https://dev.to/paratron/limit-access-of-strapi-users-to-their-own-entries-298l
+   
+   // async find(ctx){
+      //    console.log("TESTTESTESTESTEST!!!")
+      //    const user = ctx.state.user;
+   
+      //    ctx.query.filters = {
+      //       ...(ctx.query.filters || {}),
+      //       owner: user.id
+      //    };
+   
+      //    return super.find(ctx);
+      // },
 
-   //    const events = await strapi
-   //    .db
-   //    .query('plugin::users-permissions.user')
-   //    .me({
-   //       where: {
-   //          id: user.id
-   //       },
-   //       populate: { 
-   //          locations: { select: 'id'}
-   //       }
-   //       })
-   // },
-    // find: async (ctx, next) => {
-    //   // destructure to get `data` and `meta` which strapi returns by default
-    //   const {data, meta} = await super.find(ctx)
-      
-    //   // perform any other custom action
-    //   return {data, meta}
-    // }
-   }
-}
-   )
-   );
+      // async findOne(ctx){
+      //    const user = ctx.state.user;
+
+      //    ctx.query.filters = {
+      //       ...(ctx.query.filters || {}),
+      //       owner: user.id
+      //    };
+
+      //    return super.findOne(ctx);
+      // },
+
+      // async update(ctx){
+      //    const user = ctx.state.user;
+
+      //    ctx.query.filters = {
+      //       ...(ctx.query.filters || {}),
+      //       owner: user.id
+      //    };
+
+      //    return super.update(ctx);
+      // },
+
+      // async delete(ctx){
+      //    const user = ctx.state.user;
+
+      //    ctx.query.filters = {
+      //       ...(ctx.query.filters || {}),
+      //       owner: user.id
+      //    };
+
+      //    return super.delete(ctx);
+      // }
+//}
+)

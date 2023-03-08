@@ -119,6 +119,12 @@
       "relation": "manyToOne",
       "target": "plugin::users-permissions.user",
       "inversedBy": "locations"
+    },
+    "vouchers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::voucher.voucher",
+      "mappedBy": "location"
     }
   }
 }

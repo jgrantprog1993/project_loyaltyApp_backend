@@ -77,6 +77,12 @@
       "relation": "oneToMany",
       "target": "api::location.location",
       "mappedBy": "users_permissions_user"
+    },
+    "vouchers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::voucher.voucher",
+      "mappedBy": "users_permissions_user"
     }
   }
 }

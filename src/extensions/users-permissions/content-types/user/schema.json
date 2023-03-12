@@ -89,6 +89,16 @@
       "relation": "oneToMany",
       "target": "api::scan.scan",
       "mappedBy": "users_permissions_user"
+    },
+    "profilePic": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

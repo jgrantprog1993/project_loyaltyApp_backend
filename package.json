@@ -19,6 +19,9 @@
     "@vscode/sqlite3": "^5.1.2-vscode",
     "better-sqlite3": "7.4.6",
     "knex": "^0.95.15",
+    "nodemailer": "^6.9.1",
+    "pg": "^8.10.0",
+    "pg-connection-string": "^2.5.0",
     "slugify": "^1.6.5",
     "strapi-utils": "^3.6.11"
   },
